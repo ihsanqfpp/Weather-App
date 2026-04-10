@@ -1,0 +1,291 @@
+:root {
+  /* Ultra-Premium Palette */
+  --accent-primary: 221, 100%, 70%;
+  --accent-secondary: 260, 100%, 70%;
+  --bg-dark: hsla(220, 50%, 5%, 1);
+  
+  /* Compact Bento Tokens */
+  --tile-bg: hsla(0, 0%, 100%, 0.04);
+  --tile-border: hsla(0, 0%, 100%, 0.08);
+  --radius-bento: 20px;
+  
+  /* Typography */
+  --font-main: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-dark);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Reduced vertical padding */
+}
+
+button, input {
+  font-family: inherit;
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+}
+
+/* Compact Layout Header */
+.dashboard-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Tightened gap */
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 1.5rem; /* Drastic reduction */
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: -0.03em;
+  background: linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 4px;
+}
+
+/* Compact Search Section */
+.search-area {
+  background: var(--tile-bg);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-bento);
+  padding: 12px 20px;
+}
+
+.search-section-bento {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.search-box {
+  flex: 1;
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--tile-border);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+.search-box input {
+  padding: 6px;
+  font-size: 0.9rem;
+}
+
+.unit-toggle-compact {
+  background: white;
+  color: black;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 44px;
+}
+
+.unit-toggle-compact:hover {
+  background: hsl(var(--accent-primary));
+  transform: translateY(-2px);
+}
+
+.location-btn {
+  background: hsla(221, 100%, 70%, 0.1);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* History Pills (More Compact) */
+.history-bento {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.history-header p { font-size: 0.65rem; }
+.history-pill {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+}
+
+/* Compact Bento Grid */
+.dashboard-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "main main sun sun"
+    "main main pressure cloud"
+    "m1 m2 m3 m4"
+    "forecast forecast forecast forecast";
+}
+
+/* Area Definitions */
+.main-area { grid-area: main; }
+.sun-area { grid-area: sun; }
+.cloud-area { grid-area: cloud; }
+.pressure-area { grid-area: pressure; }
+.m1-area { grid-area: m1; }
+.m2-area { grid-area: m2; }
+.m3-area { grid-area: m3; }
+.m4-area { grid-area: m4; }
+.forecast-area { grid-area: forecast; }
+
+.bento-tile {
+  background: var(--tile-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--tile-border);
+  border-radius: var(--radius-bento);
+  padding: 10px 24px; /* Reduced vertical, maintained horizontal */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bento-tile:hover {
+  border-color: hsla(221, 100%, 70%, 0.4);
+  background: hsla(0, 0%, 100%, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -10px rgba(0,0,0,0.5);
+}
+
+/* Main Area Scaling */
+.main-area .temp {
+  font-family: var(--font-display);
+  font-size: 3.5rem; /* Further reduction for height */
+  font-weight: 800;
+  margin: -2px 0;
+}
+
+.main-area h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.main-area .description {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+}
+
+/* Metric Scaling */
+.metric-tile {
+  gap: 2px; /* Minimal gap */
+  padding: 8px 16px !important;
+}
+
+.metric-tile strong {
+  font-size: 0.65rem;
+}
+
+.metric-tile span {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Trend Tile (Compact) */
+.trend-area h4 {
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+.temp-chart-svg {
+  height: 80px; /* Shorter chart */
+}
+
+/* Forecast Area (Grid) */
+.forecast-area h3 {
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.forecast-mini-tile {
+  padding: 6px 4px;
+}
+
+.forecast-mini-tile img {
+  width: 32px;
+  height: 32px;
+}
+
+.forecast-temp { font-size: 0.9rem; }
+
+/* Sun Area Specifics */
+.sun-tile-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.sun-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sun-item span {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sun-item label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Responsive Dashboard */
+@media (max-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "main main"
+      "trend trend"
+      "m1 m2"
+      "m3 m4"
+      "forecast forecast";
+  }
+}
+
+/* Side Area Toggle */
+.side-area {
+  padding: 8px !important;
+}
+
+.unit-btn-premium {
+  width: 40px;
+  height: 40px;
+  font-size: 0.9rem;
+}
